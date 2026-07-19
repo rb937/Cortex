@@ -29,7 +29,7 @@ Running fully offline via Ollama means no API costs during development, no data 
 
 ## Project structure
 
-\`\`\`
+```
 rag-project/
 ├── data/raw_docs/       # source PDFs
 ├── ingestion/           # document loading + chunking
@@ -38,11 +38,11 @@ rag-project/
 ├── generation/          # prompt construction + LLM backends
 ├── app.py               # Streamlit UI (WIP)
 └── requirements.txt
-\`\`\`
+```
 
 ## Setup
 
-\`\`\`bash
+```bash
 # Clone and set up environment
 git clone https://github.com/rb937/Cortex.git
 cd Cortex
@@ -62,7 +62,7 @@ python vectorstore/store.py
 
 # Ask questions
 python generation/llm.py
-\`\`\`
+```
 
 
 ## License

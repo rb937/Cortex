@@ -2,7 +2,6 @@ import ollama
 from backends import generate
 
 def generate_answer(query: str, retrieved_chunks: list[tuple[str, str]], backend: str = "ollama") -> str:
-    """Build a prompt from retrieved chunks and generate an answer."""
     context = "\n\n".join([f"[Source: {source}]\n{chunk}" for chunk, source in retrieved_chunks])
 
     prompt = f"""You are a helpful study assistant. Answer the question using ONLY the context below.
@@ -33,4 +32,7 @@ if __name__ == "__main__":
 
         chunks = retrieve_chunks(query, db_path)
         answer = generate_answer(query, chunks)
-        print(f"\nAnswer: {answer}\n")
+        sources = sorted(set(source for _, source in chunks))
+
+        print(f"\nAnswer: {answer}")
+        print(f"\nSources: {', '.join(sources)}")

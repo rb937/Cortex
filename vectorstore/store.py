@@ -7,10 +7,6 @@ def get_embedding(text: str) -> list[float]:
     return response["embedding"]
 
 def build_vector_store(chunks: list[tuple[str, str]], db_path: str = "./chroma_db"):
-    """
-    chunks: list of (filename, chunk_text) tuples
-    Embeds each chunk and stores it in a persistent Chroma collection.
-    """
     client = chromadb.PersistentClient(path=db_path)
     collection = client.get_or_create_collection("coursework")
 
